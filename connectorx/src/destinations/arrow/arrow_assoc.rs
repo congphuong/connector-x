@@ -5,7 +5,7 @@ use super::{
 use crate::constants::SECONDS_IN_DAY;
 use arrow::array::{
     ArrayBuilder, BooleanBuilder, Date32Builder, Float32Builder, Float64Builder, Int16Builder,
-    Int32Builder, Int64Builder, LargeBinaryBuilder, LargeListBuilder, StringBuilder,
+    Int32Builder, Int64Builder, LargeBinaryBuilder, ListBuilder, StringBuilder,
     Time64MicrosecondBuilder, Time64NanosecondBuilder, TimestampMicrosecondBuilder,
     TimestampNanosecondBuilder, UInt16Builder, UInt32Builder, UInt64Builder,
 };
@@ -489,10 +489,10 @@ impl ArrowAssoc for Vec<u8> {
 macro_rules! impl_arrow_array_assoc {
     ($T:ty, $AT:expr, $B:ident) => {
         impl ArrowAssoc for $T {
-            type Builder = LargeListBuilder<$B>;
+            type Builder = ListBuilder<$B>;
 
             fn builder(nrows: usize) -> Self::Builder {
-                LargeListBuilder::with_capacity($B::new(), nrows)
+                ListBuilder::with_capacity($B::new(), nrows)
             }
 
             #[throws(ArrowDestinationError)]
@@ -503,17 +503,17 @@ macro_rules! impl_arrow_array_assoc {
             fn field(header: &str) -> Field {
                 Field::new(
                     header,
-                    ArrowDataType::LargeList(std::sync::Arc::new(Field::new_list_field($AT, true))),
+                    ArrowDataType::List(std::sync::Arc::new(Field::new_list_field($AT, true))),
                     false,
                 )
             }
         }
 
         impl ArrowAssoc for Option<$T> {
-            type Builder = LargeListBuilder<$B>;
+            type Builder = ListBuilder<$B>;
 
             fn builder(nrows: usize) -> Self::Builder {
-                LargeListBuilder::with_capacity($B::new(), nrows)
+                ListBuilder::with_capacity($B::new(), nrows)
             }
 
             #[throws(ArrowDestinationError)]
@@ -524,7 +524,7 @@ macro_rules! impl_arrow_array_assoc {
             fn field(header: &str) -> Field {
                 Field::new(
                     header,
-                    ArrowDataType::LargeList(std::sync::Arc::new(Field::new_list_field($AT, true))),
+                    ArrowDataType::List(std::sync::Arc::new(Field::new_list_field($AT, true))),
                     true,
                 )
             }
