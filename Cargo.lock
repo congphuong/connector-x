@@ -1023,7 +1023,7 @@ dependencies = [
  "itertools 0.14.0",
  "j4rs",
  "log",
- "mysql_common",
+ "mysql_common 0.32.1",
  "native-tls",
  "num-traits",
  "openssl",
@@ -3446,7 +3446,7 @@ dependencies = [
  "io-enum",
  "libc",
  "lru",
- "mysql_common",
+ "mysql_common 0.32.4",
  "named_pipe",
  "native-tls",
  "pem",
@@ -3477,6 +3477,54 @@ dependencies = [
 ]
 
 [[package]]
+name = "mysql-common-derive"
+version = "0.32.0"
+source = "git+https://github.com/congphuong/rust_mysql_common.git?rev=fe42b82aec38211b6edbfac4383d3d15b54644b9#fe42b82aec38211b6edbfac4383d3d15b54644b9"
+dependencies = [
+ "darling 0.20.10",
+ "heck",
+ "num-bigint",
+ "proc-macro-crate",
+ "proc-macro-error2",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.96",
+ "termcolor",
+ "thiserror 1.0.69",
+]
+
+[[package]]
+name = "mysql_common"
+version = "0.32.1"
+source = "git+https://github.com/congphuong/rust_mysql_common.git?rev=fe42b82aec38211b6edbfac4383d3d15b54644b9#fe42b82aec38211b6edbfac4383d3d15b54644b9"
+dependencies = [
+ "base64 0.22.1",
+ "bitflags 2.8.0",
+ "btoi",
+ "byteorder",
+ "bytes",
+ "cc",
+ "chrono",
+ "cmake",
+ "crc32fast",
+ "flate2",
+ "getrandom 0.3.1",
+ "mysql-common-derive 0.32.0",
+ "num-bigint",
+ "num-traits",
+ "regex",
+ "saturating",
+ "serde",
+ "serde_json",
+ "sha1",
+ "sha2",
+ "subprocess",
+ "thiserror 2.0.11",
+ "uuid",
+ "zstd",
+]
+
+[[package]]
 name = "mysql_common"
 version = "0.32.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3491,13 +3539,12 @@ dependencies = [
  "byteorder",
  "bytes",
  "cc",
- "chrono",
  "cmake",
  "crc32fast",
  "flate2",
  "frunk",
  "lazy_static",
- "mysql-common-derive",
+ "mysql-common-derive 0.31.2",
  "num-bigint",
  "num-traits",
  "rand 0.8.5",
