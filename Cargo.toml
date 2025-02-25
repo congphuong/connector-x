@@ -8,6 +8,10 @@ debug = true
 lto = true
 
 [workspace.dependencies]
-arrow = {version = "54", features = ["prettyprint", "ffi"]}
-polars = {version = "0.45", features=["dtype-u8", "dtype-u16", "lazy"]}
-polars-arrow = {version = "0.45"}
+arrow = { version = "54", features = ["prettyprint", "ffi"] }
+polars = { version = "0.45", features = ["dtype-u8", "dtype-u16", "lazy"] }
+polars-arrow = { version = "0.45" }
+
+
+[patch.crates-io]
+mysql_common = { git = "https://github.com/congphuong/rust_mysql_common.git", rev = "00fd3a4e344fc1bc748c9b7cb369e5aac5ac21f1" }
