@@ -14,4 +14,4 @@ polars-arrow = { version = "0.45" }
 
 
 [patch.crates-io]
-mysql_common = { git = "https://github.com/congphuong/rust_mysql_common.git", rev = "00fd3a4e344fc1bc748c9b7cb369e5aac5ac21f1" }
+mysql_common = { git = "https://github.com/congphuong/rust_mysql_common.git", rev = "b3fa6f676a9e8a9ef95dabd4f19ad222eebd166a" }

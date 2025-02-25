@@ -47,7 +47,7 @@ postgres = { version = "0.19", features = [
 ], optional = true }
 postgres-native-tls = { version = "0.5", optional = true }
 postgres-openssl = { version = "0.5", optional = true }
-mysql_common = { version = "0.32.5", git = "https://github.com/congphuong/rust_mysql_common.git", rev = "00fd3a4e344fc1bc748c9b7cb369e5aac5ac21f1", features = [
+mysql_common = { version = "0.32.5", git = "https://github.com/congphuong/rust_mysql_common.git", rev = "b3fa6f676a9e8a9ef95dabd4f19ad222eebd166a", features = [
     "chrono",
 ], optional = true }
 r2d2 = { version = "0.8", optional = true }
